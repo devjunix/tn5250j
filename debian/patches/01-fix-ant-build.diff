@@ -1,0 +1,45 @@
+--- a/build.xml
++++ b/build.xml
+@@ -15,7 +15,7 @@
+ 	<property name="build.classes.dir" value="${build.dir}"/>
+ 	<property name="dist.dir" value="${basedir}/dist" />
+ 	<property name="javadoc.dir" value="${build.dir}/javadoc" />
+-	<property name="rtm.lib.dir" value="${basedir}/lib/runtime" /> <!-- runtime libs -->
++	<property name="rtm.lib.dir" value="/usr/share/java" /> <!-- runtime libs -->
+ 	<property name="dev.lib.dir" value="${basedir}/lib/development" /> <!-- development libs -->
+ 	
+ 	<property name="compile.source" value="1.6" />
+@@ -32,8 +32,7 @@
+     <path id="classpath">
+        <pathelement path="${build.classes.dir}" />
+        <fileset dir="${rtm.lib.dir}" >
+-          <include name="*.jar" />
+-          <include name="*.zip" />
++          <include name="javax.mail.jar" />
+        </fileset>
+     </path>
+ 
+@@ -232,7 +231,7 @@
+         </copy>
+     </target>
+     
+-    <target name="dist-bin" depends="dist-bin-zip, dist-bin-tgz, dist-bin-jarbundle, dist-core-jar-only" description="Create a Zip and TGZ Archives with all the binary files">
++    <target name="dist-bin" depends="dist-bin-zip, dist-bin-tgz, dist-core-jar-only" description="Create a Zip and TGZ Archives with all the binary files">
+     </target>
+ 
+ 	<target name="dist-core-jar-only" depends="dist-bin-prepare">
+@@ -329,6 +328,7 @@
+    </target>
+ 
+ <!-- start jar bundler task -->
++<!--
+ 	<taskdef name="jarbundler"
+ 	                  classpath="${dev.lib.dir}/jarbundler-2.2.0.jar"
+ 	                  classname="net.sourceforge.jarbundler.JarBundler" />
+@@ -371,5 +371,5 @@
+         <gzip zipfile="${dist.dir}/${dist.bin.name}.app.tgz" src="${dist.dir}/${dist.bin.name}.app.tar" />
+         <delete file="${dist.dir}/${dist.bin.name}.app.tar"/>
+     </target>
+-
+++-->
+ </project>

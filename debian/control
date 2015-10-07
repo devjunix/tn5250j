@@ -1,0 +1,16 @@
+Source: tn5250j
+Section: net
+Priority: extra
+Maintainer: Debian Java Maintainers <pkg-java-maintainers@lists.alioth.debian.org>
+Uploaders: Julián Moreno Patiño <julian@debian.org>
+Build-Depends: debhelper (>= 9), javahelper (>= 0.25)
+Build-Depends-Indep: default-jdk, ant, libmail-java
+Standards-Version: 3.9.6
+Homepage: http://tn5250j.sourceforge.net/
+
+Package: tn5250j
+Architecture: all
+Depends: ${java:Depends}, ${misc:Depends}
+Description: terminal emulator for the IBM i
+ tn5250j connects to an IBM iSeries (AS/400) running i5/OS or later
+ and emulates a 5250-compatible "green screen" terminal.
